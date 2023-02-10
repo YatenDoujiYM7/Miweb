@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Document</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-255928882-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-255928882-1');
+    </script>
+
+
+
+
+</head>
+    <body>
+        <form action="/contactos/crear" method="post">
+
+            <div class="container">
+                <h1 class="text-center">Contacto</h1>
+                <div class="form-group"> 
+                    <label for="email">email</label>
+                    <input  type="email" class="form-control" id="email" name="email">
+                </div>
+
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input  type="text"  class="form-control" id="name"  name="name">
+                </div>
+
+                    <div class="form-group">
+                        <textarea class="form-control" name="comment" placeholder="Comentario"></textarea>
+                </div>
+                {{#if message}}
+                    <div class="alert alert-danger" role="alert">
+                        {{message}}
+                    </div>
+                {{/if}}
+                <div>
+                    <div class="g-recaptcha" data-sitekey="{{recaptchaKey}}"></div>
+                    <button type="submit"  class="btn btn-primary w-100">Registar</button>
+                </div>
+            </div>
+
+        </form>
+    </body>
+</html>
