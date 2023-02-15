@@ -6,6 +6,9 @@ var conect_email = require('../config/email');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  if(!req.session.user){
+    return res.redirect('/signin');
+  }
   res.render('contact', { title: 'Pagina Principal', recaptchaKey: process.env.recaptchaKey});
 });
 
